@@ -5,17 +5,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@MappedSuperclass
 public class Question {
+    private @Id
+    Integer id;
     private String category;
     private String type;
     private String difficulty;
     private String question;
-    private String correctAnswer;
-    private List<String> incorrectAnswers;
 }
