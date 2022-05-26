@@ -1,8 +1,0 @@
-
-[	java:S112-"FDefine and throw a dedicated exception instead of using a generic one.(ì‡ı
-d
-java:S2259#"IA "NullPointerException" could be thrown; "apiResponse" is nullable here.(ŸÎËìıÿÿÿÿ
-J
-java:S1611"/Remove the parentheses around the "q" parameter(šî¨ÿÿÿÿÿ
-_
-java:S11261"BReplace this if-then-else statement by a single method invocation.(»ÒõÕ8ìËÏ‡0

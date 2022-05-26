@@ -1,5 +1,0 @@
-
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘¦ó­üÿÿÿÿ8ˆ¿¹‡0
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘¦ó­üÿÿÿÿ8ˆ¿¹‡0
-s	java:S116"YRename this field "correct_answer" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿µúÿÿÿÿ
-q	java:S116"\Rename this field "incorrect_answers" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(À¥Ö¦

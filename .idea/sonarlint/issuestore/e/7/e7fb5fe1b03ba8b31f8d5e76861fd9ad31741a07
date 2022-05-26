@@ -1,17 +1,0 @@
-
-4
-java:S57861"Remove this 'public' modifier.(®Ç•Ş
-9
-java:S5786?"Remove this 'public' modifier.(¡ÜŞèùÿÿÿÿ
-4
-java:S5786T"Remove this 'public' modifier.(–Åøê
-4
-java:S5786b"Remove this 'public' modifier.(Èü“¹
-3
-java:S5786p"Remove this 'public' modifier.(«ºÍ6
-@
-java:S5786"Remove this 'public' modifier.(¿ëı±úÿÿÿÿ8¿¯È0
-G
-java:S5838;"1Use assertThat(actual).hasSize(expected) instead.(Ë¹š¦
-S
-java:S5838P"1Use assertThat(actual).hasSize(expected) instead.(‰„òôüÿÿÿÿ8Á¯È0
