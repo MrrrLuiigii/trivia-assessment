@@ -3,7 +3,6 @@ package quadsolutions.triviaassessment.trivia;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.commons.util.ReflectionUtils;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -12,7 +11,7 @@ import quadsolutions.triviaassessment.models.AnsweredQuestion;
 import quadsolutions.triviaassessment.models.QuestionToAsk;
 import quadsolutions.triviaassessment.models.QuestionWithAnswers;
 
-import java.lang.reflect.Field;
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -22,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
-public class TriviaServiceTests {
+class TriviaServiceTests {
 
     @Mock
     private RestTemplateBuilder restTemplateBuilder;
@@ -46,21 +45,7 @@ public class TriviaServiceTests {
     }
 
     @Test
-    public void givenNoQuestions_whenFetchQuestionsFromTriviaAPI_thenReturnQuestionWithAnswersList() {
-        // given
-        repository.deleteAll();
-        given(repository.findAll()).willReturn(List.of());
-
-        // when
-        List<QuestionWithAnswers> questionsWithAnswers = triviaService.fetchQuestionsFromTriviaAPI();
-
-        // then
-        assertThat(questionsWithAnswers).isNotNull();
-        assertThat(questionsWithAnswers.size()).isEqualTo(100);
-    }
-
-    @Test
-    public void givenQuestionWithAnswersList_whenGetQuestions_thenReturnQuestionToAskList() {
+    void givenQuestionWithAnswersList_whenGetQuestions_thenReturnQuestionToAskList() {
         // given
         List<String> answers = new ArrayList<>();
         answers.add("Tornados");
@@ -81,7 +66,7 @@ public class TriviaServiceTests {
     }
 
     @Test
-    public void givenCorrectAnswer_whenAnswerQuestion_thenReturnAnsweredQuestionWithTrue() {
+    void givenCorrectAnswer_whenAnswerQuestion_thenReturnAnsweredQuestionWithTrue() {
         // given
         given(repository.findById(1)).willReturn(Optional.ofNullable(questionWithAnswers));
 
@@ -95,7 +80,7 @@ public class TriviaServiceTests {
     }
 
     @Test
-    public void givenWrongAnswer_whenAnswerQuestion_thenReturnAnsweredQuestionWithFalse() {
+    void givenWrongAnswer_whenAnswerQuestion_thenReturnAnsweredQuestionWithFalse() {
         // given
         given(repository.findById(1)).willReturn(Optional.ofNullable(questionWithAnswers));
 
@@ -109,9 +94,9 @@ public class TriviaServiceTests {
     }
 
     @Test
-    public void givenNonExistingId_whenAnswerQuestion_thenThrowException() {
+    void givenNonExistingId_whenAnswerQuestion_thenThrowException() {
         // given when then
-        assertThrows(RuntimeException.class, () ->
+        assertThrows(EntityNotFoundException.class, () ->
                 triviaService.checkAnswer(2, "True"));
     }
 }

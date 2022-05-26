@@ -16,5 +16,6 @@ public class AnsweredQuestion extends QuestionWithAnswers {
         super(questionWithAnswers.getId(), questionWithAnswers.getCategory(), questionWithAnswers.getType(),
                 questionWithAnswers.getDifficulty(), questionWithAnswers.getQuestion(),
                 questionWithAnswers.getCorrect_answer(), questionWithAnswers.getIncorrect_answers());
+        this.correct = false;
     }
 }
