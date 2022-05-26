@@ -14,7 +14,7 @@
     <name>trivia-assessment</name>
     <description>An API for presenting and validating trivia questions.</description>
     <properties>
-        <java.version>13</java.version>
+        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
