@@ -2,8 +2,12 @@ package quadsolutions.triviaassessment.trivia;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import quadsolutions.triviaassessment.models.UnansweredQuestion;
+import quadsolutions.triviaassessment.models.AnsweredQuestion;
+import quadsolutions.triviaassessment.models.CheckAnswerDTO;
+import quadsolutions.triviaassessment.models.QuestionToAsk;
 
 import java.util.List;
 
@@ -23,8 +27,15 @@ public class TriviaController {
     }
 
     @GetMapping("questions")
-    public ResponseEntity<List<UnansweredQuestion>> getQuestions() {
-        List<UnansweredQuestion> questions = this.triviaService.getQuestions();
+    public ResponseEntity<List<QuestionToAsk>> getQuestions() {
+        List<QuestionToAsk> questions = this.triviaService.getQuestions();
         return ResponseEntity.ok(questions);
+    }
+
+    @PostMapping("checkanswer")
+    public ResponseEntity<AnsweredQuestion> answerQuestion(@RequestBody CheckAnswerDTO checkAnswerDTO) {
+        AnsweredQuestion answeredQuestion =
+                this.triviaService.checkAnswer(checkAnswerDTO.getQuestionId(), checkAnswerDTO.getAnswer());
+        return ResponseEntity.ok(answeredQuestion);
     }
 }
